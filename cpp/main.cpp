@@ -13,8 +13,8 @@ using namespace std;
 void DoAnnealing(TEnvironment& env, const string& debugFilename, const string& dumpFilename) {
     // IChecker checker = MakeChecker(env);
 
-    const double startTemp = storage.GetDouble(NKnownConstants::START_TEMPERATURE);
-    const double endTemp = storage.GetDouble(NKnownConstants::END_TEMPERATURE);
+    const double startTemp = env.Constants.GetDouble(NKnownConstants::START_TEMPERATURE);
+    const double endTemp = env.Constants.GetDouble(NKnownConstants::END_TEMPERATURE);
     // Create annealing simulator
     // IAnnealingSimulator myAnnealingSimulator (startTemp, env, checker);
 
@@ -25,7 +25,7 @@ void DoAnnealing(TEnvironment& env, const string& debugFilename, const string& d
     }
 
     // auto annealing = Annealing<IAnnealingSimulator>(myAnnealingSimulator);
-    const ui64 maxIterations = storage.GetInt(NKnownConstants::ITERATIONS);
+    const ui64 maxIterations = env.Constants.GetInt(NKnownConstants::ITERATIONS);
 
 
     // Create debug class for annealing logging
